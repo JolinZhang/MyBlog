@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="site-head">
+    <meta charset="UTF-8" />
+    <meta th:include="this :: head" th:remove="tag"/>
+</head>
+<body>
+    <header th:fragment="site-header">
+        <h1>Jolin Zhang Blog</h1>
+
+    </header>
+    <h1>Welcome</h1>
+    <p>Welcome to the Spring MVC Blog.</p>
+    <footer th:fragment="site-footer">
+        &copy; Spring MVC Blog System, 2016
+    </footer>
+</body></html>

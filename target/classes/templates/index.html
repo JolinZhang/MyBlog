@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns:th="http://www.thymeleaf.org"  >
 <head>
-    <meta charset="UTF-8"/>
-    <title> blog </title>
+    <title>Jolin Zhang Blog</title>
 </head>
-
 <body>
-    <h1> Jolin Zhang blog </h1>
+    <header th:replace="layout :: site-header" />
+    Now is: <b th:text="${execInfo.now.time}">date and time</b>
 
+    <aside>
+        <h2>Recent posts</h2>
+        <a href="#"  th:each="p: ${latest5posts}" th:text ="${p.title}">
+            </a>
+        </aside>
+    <main id ="posts">
+        <article th:each = "p : ${latest3posts}">
+            <h2 class="title" th:text="${p.title}">Post Title</h2>
+            <p class="content" th:text="${p.body}">Post Body</p>
+
+            </article>
+        </main>
+
+    <footer th:replace="layout :: site-footer" />
 </body>
-
 </html>
+
