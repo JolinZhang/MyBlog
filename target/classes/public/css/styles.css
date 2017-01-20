@@ -1,0 +1,41 @@
+body>aside
+{
+    float: right;
+    width: 200px;
+    background: #CCCCCC;
+    padding: 15px;
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+body>aside h2{
+    margin: 5px 0px 15px 0px;
+}
+body>aside a{
+    display: block;
+    text-decoration: none;
+    margin: 5px 0px;
+}
+body> main:after{
+    displa:block;
+}
+
+
+ul#messages li{
+    display:block;
+    width:50%;
+    margin:5px auto;
+    text-align:center;
+    padding:5px;
+    border-radius:5px;
+}
+
+ul#messages li.info{
+    background: #7f7;
+}
+
+ul#messages li.error{
+    background: #d00;
+    color: white;
+
+}

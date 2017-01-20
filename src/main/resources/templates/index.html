@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"  >
-<head>
+<head th:replace="layout :: site-head ">
     <title>Jolin Zhang Blog</title>
 </head>
 <body>
+
     <header th:replace="layout :: site-header" />
     Now is: <b th:text="${execInfo.now.time}">date and time</b>
 
     <aside>
         <h2>Recent posts</h2>
-        <a href="#"  th:each="p: ${latest5posts}" th:text ="${p.title}">
+        <a href="#"  th:each="p: ${latest5posts}" th:text ="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}">
             </a>
         </aside>
     <main id ="posts">
