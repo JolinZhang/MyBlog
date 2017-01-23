@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by Jonelezhang on 1/8/17.
  */
+
 public interface PostService {
     List<Post> findAll();
     List<Post> findLatest5();
