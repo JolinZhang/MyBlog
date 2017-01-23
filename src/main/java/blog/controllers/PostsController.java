@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 /**
  * Created by Jonelezhang on 1/18/17.
  */
@@ -29,5 +31,17 @@ public class PostsController {
         }
         model.addAttribute("post", post);
         return "posts/view";
+    }
+
+    @RequestMapping("/posts/list_posts")
+    public String allViews(Model model){
+        List<Post> allPosts = postService.findAll();
+        model.addAttribute("allposts", allPosts);
+        return "posts/list_posts";
+    }
+
+    @RequestMapping("/posts/create_post")
+    public String create(Model model){
+        return "posts/create_post";
     }
 }

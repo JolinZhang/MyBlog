@@ -19,6 +19,8 @@
             <p class="content" th:text="${p.body}">Post Body</p>
 
             </article>
+
+        <a  href = "#"  th:href="@{/posts/list_posts}" > ListPosts</a>
         </main>
 
     <footer th:replace="layout :: site-footer" />
