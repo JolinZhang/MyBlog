@@ -10,7 +10,7 @@
 
     <aside>
         <h2>Recent posts</h2>
-        <a href="#"  th:each="p: ${latest5posts}" th:text ="${p.title}" th:href="@{/posts/view/{id}/(id=${p.id})}">
+        <a href="#"  th:each="p: ${latest5posts}" th:text ="${p.title}" th:href="@{/posts/{id}/(id=${p.id})}">
             </a>
         </aside>
     <main id ="posts">
@@ -20,7 +20,7 @@
 
             </article>
 
-        <a  href = "#"  th:href="@{/posts/list_posts}" > ListPosts</a>
+        <a  href = "#"  th:href="@{/posts}" > ListPosts</a>
         </main>
 
     <footer th:replace="layout :: site-footer" />

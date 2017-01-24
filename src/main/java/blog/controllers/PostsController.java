@@ -25,7 +25,7 @@ public class PostsController {
     @Autowired
     private NotificationService notificationService;
 
-    @RequestMapping("/posts/view/{id}")
+    @RequestMapping("/posts/{id}")
     public String view(@PathVariable("id")Long id, Model model){
         Post post = postService.findById(id);
         if(post == null){
@@ -36,7 +36,7 @@ public class PostsController {
         return "posts/view";
     }
 
-    @RequestMapping("/posts/list_posts")
+    @RequestMapping("/posts")
     public String allViews(Model model){
         List<Post> allPosts = postService.findAll();
         model.addAttribute("allposts", allPosts);
@@ -64,7 +64,7 @@ public class PostsController {
             postService.create(post);
             notificationService.addInfoMessage("post successfully!");
         }
-        return "redirect:/posts/list_posts";
+        return "redirect:/posts";
     }
 
     @RequestMapping(value ="/posts/create_post/{id}", method = RequestMethod.POST)
@@ -75,7 +75,7 @@ public class PostsController {
             postService.edit(post);
             notificationService.addInfoMessage("post successfully!");
         }
-        return "redirect:/posts/list_posts";
+        return "redirect:/posts";
     }
 
 }
