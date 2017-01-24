@@ -1,6 +1,7 @@
 package blog.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -15,12 +16,15 @@ public class Post {
     private long id;
 
     @Column(nullable = false, length = 300)
+    @Size(min=1)
     private String title;
 
     @Lob @Column(nullable = false)
+    @Size(min=1)
     private String body;
 
     @Column(nullable = false)
+    @Size(min=1)
     private String author;
 
     @Column(nullable = false)

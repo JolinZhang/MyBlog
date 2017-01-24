@@ -5,13 +5,13 @@
 <body>
     <header  th:replace ="layout :: site-header"/>
     <main>
-        <form method="post" action="">
-            Title<br/>
-            <input type="text" value="" name="title"/><br/>
-            Author<br/>
-            <input type="text" value="" name="author"/><br/>
-            Content<br/>
-            <input type="text" value="" name="content"/><br/>
+        <form method="post" th:object="${post}">
+            <div> <label for="title">Title</label></div>
+            <input type="text" name="title" th:value="*{title}"/><br/>
+            <div><label for="author">Author</label></div>
+            <input type="text" name="author" th:value="*{author}"/><br/>
+            <div><label for="body" >Content</label></div>
+            <input type="text"  name="body" th:value="*{body}"/><br/>
             <input type="submit" value="submit" name="submit"/>
             <input type="reset" value="reset" name="reset"/>
         </form>

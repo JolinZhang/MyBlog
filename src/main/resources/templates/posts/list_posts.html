@@ -10,8 +10,8 @@
     <article th:each=" p: ${allposts}">
         <h5 class="title" th:text="${p.title}">Post Title</h5>
         <p class="content" th:text="${p.body}">content</p>
-        <a> eidt</a>
-        <a> delete</a>
+        <a href="#" th:href="@{/posts/create_post/{id}/(id=${p.id})}"> edit</a>
+        <a href="#"> delete</a>
     </article>
 </main>
 <footer th:replace="layout :: site-footer"/>
