@@ -6,12 +6,12 @@
 <body>
 <header  th:replace=" layout :: site-header"/>
 <main id="posts">
-    <a href="#" th:href="@{/posts/create_post}"> create</a>
+    <a href="#" th:href="@{/posts/new_post}"> create</a>
     <article th:each=" p: ${allposts}">
         <h5 class="title" th:text="${p.title}">Post Title</h5>
         <p class="content" th:text="${p.body}">content</p>
-        <a href="#" th:href="@{/posts/create_post/{id}/(id=${p.id})}"> edit</a>
-        <a href="#"> delete</a>
+        <a href="#" th:href="@{/posts/new_post/{id}/(id=${p.id})}"> edit</a>
+        <a href="#" th:href="@{/posts/delete_post/{id}/(id=${p.id})}"> delete</a>
     </article>
 </main>
 <footer th:replace="layout :: site-footer"/>

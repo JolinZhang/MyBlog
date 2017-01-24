@@ -7,5 +7,5 @@ $(function(){
 
     setTimeout(function(){
         $('#messages li.info').fadeOut();
-    }, 3000);
+    }, 2000);
 });

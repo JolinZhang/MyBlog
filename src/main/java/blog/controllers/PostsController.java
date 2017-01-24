@@ -43,19 +43,19 @@ public class PostsController {
         return "posts/list_posts";
     }
 
-    @RequestMapping("/posts/create_post")
+    @RequestMapping("/posts/new_post")
     public String create(Post post){
         return "posts/create_post";
     }
 
-    @RequestMapping("/posts/create_post/{id}")
+    @RequestMapping("/posts/new_post/{id}")
     public String update(@PathVariable("id")Long id, Model model){
         Post post = postService.findById(id);
         model.addAttribute("post", post);
         return "posts/create_post";
     }
 
-    @RequestMapping(value ="/posts/create_post", method = RequestMethod.POST)
+    @RequestMapping(value ="/posts/new_post", method = RequestMethod.POST)
     public String createPost(@Valid Post post, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             notificationService.addErrorMessage("please fill the form correctly!");
@@ -67,7 +67,7 @@ public class PostsController {
         return "redirect:/posts";
     }
 
-    @RequestMapping(value ="/posts/create_post/{id}", method = RequestMethod.POST)
+    @RequestMapping(value ="/posts/new_post/{id}", method = RequestMethod.POST)
     public String updatePost(@Valid Post post, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             notificationService.addErrorMessage("please fill the form correctly!");
@@ -78,4 +78,14 @@ public class PostsController {
         return "redirect:/posts";
     }
 
+    @RequestMapping(value ="/posts/delete_post/{id}", method = RequestMethod.GET)
+    public String deletePost(@Valid Post post, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            notificationService.addErrorMessage("delete operation failed!");
+        }else{
+            postService.deleteById(post.getId());
+            notificationService.addInfoMessage("delete successfully!");
+        }
+        return "redirect:/posts";
+    }
 }
