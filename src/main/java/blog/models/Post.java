@@ -23,9 +23,12 @@ public class Post {
     @Size(min=1)
     private String body;
 
-    @Column(nullable = false)
-    @Size(min=1)
-    private String author;
+//    @Column(nullable = false)
+//    @Size(min=1)
+//    private String author;
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private User author;
 
     @Column(nullable = false)
     private Date date = new Date();
@@ -51,10 +54,10 @@ public class Post {
         this.body = body;
     }
 
-    public String getAuthor(){
+    public User getAuthor(){
         return author;
     }
-    public void setAuthor(String author){
+    public void setAuthor(User author){
         this.author = author;
     }
 
@@ -67,7 +70,7 @@ public class Post {
 
     public Post(){}
 
-    public Post(Long id, String title, String body, String author){
+    public Post(Long id, String title, String body, User author){
         this.id = id;
         this.title = title;
         this.body = body;

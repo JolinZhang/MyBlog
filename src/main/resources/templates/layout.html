@@ -12,7 +12,7 @@
 <body>
 
     <header th:fragment="site-header">
-        <h1>Jolin Zhang Blog</h1>
+        <h1>Blog</h1>
         <ul id = "messages" th:with=" notificationMessage=${session[T(blog.services.NotificationServiceImpl).NOTIFY_MSG_SESSION_KEY]}">
             <li th:each="msg: ${notificationMessage}" th:text ="${msg.text}"  th:class="${#strings.toLowerCase(msg.type)}">
             </li>

@@ -17,13 +17,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostServiceStubImpl implements PostService {
     private List<Post> posts = new ArrayList<Post>(){{
-        add(new Post(1L,"title1","body1","author1"));
-        add(new Post(2L,"title2","body2","author2"));
-        add(new Post(3L,"title3","body3","author3"));
-        add(new Post(4L,"title4","body4","author4"));
-        add(new Post(5L,"title5","body5","author5"));
-        add(new Post(6L,"title6","body6","author6"));
-        add(new Post(7L,"title7","body7","author7"));
+        add(new Post(1L,"title1","body1",null));
+        add(new Post(2L,"title2","body2",null));
+        add(new Post(3L,"title3","body3",null));
+        add(new Post(4L,"title4","body4",null));
+        add(new Post(5L,"title5","body5",null));
+        add(new Post(6L,"title6","body6",null));
+        add(new Post(7L,"title7","body7",null));
     }};
 
     @Override
