@@ -26,8 +26,8 @@ public class User {
     @Size(min = 1, max=30)
     private String passwordHash;
 
-    @OneToMany(mappedBy = "author")
-    private Set<Post> posts = new HashSet<Post>();
+//    @OneToMany(mappedBy = "author")
+//    private Set<Post> posts = new HashSet<Post>();
 
     public void setId(Long id){
         this.id = id;
@@ -47,18 +47,25 @@ public class User {
     public String getPasswordHash(){
         return passwordHash;
     }
-    public void setPosts(Set<Post> posts){
-        this.posts = posts;
-    }
-    public Set<Post> getPosts(){
-        return posts;
-    }
+//    public void setPosts(Set<Post> posts){
+//        this.posts = posts;
+//    }
+//    public Set<Post> getPosts(){
+//        return posts;
+//    }
 
     public User() {
     }
 
     public User(String username){
         this.username = username;
+    }
+
+    public User(Long id, String username, String passwordHash){
+        this.id = id;
+        this.username = username;
+        this.passwordHash = passwordHash;
+
     }
 
     @Override
@@ -70,3 +77,4 @@ public class User {
                 '}';
     }
 }
+

@@ -1,4 +1,4 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head th:replace="layout :: site-head">
@@ -14,13 +14,13 @@
 <form method="post" th:object="${user}">
     <div><label for="username">Username:</label></div>
     <input id="username" type="text" name="username" th:value="*{username}" />
-    <span class="formError" th:if="${#fields.hasErrors('username')}"
-          th:errors="*{username}">Invalid username</span>
+    <!--<span class="formError" th:if="${#fields.hasErrors('username')}"-->
+          <!--th:errors="*{username}">Invalid username</span>-->
 
-    <div><label for="password">Password:</label></div>
-    <input id="password" type="password" name="password" th:value="*{passwordHash}" />
-    <span class="formError" th:if="${#fields.hasErrors('passwordHash')}"
-          th:errors="*{passwordHash}">Invalid password</span>
+    <div><label for="passwordHash">Password:</label></div>
+    <input id="passwordHash" type="password" name="passwordHash" th:value="*{passwordHash}" />
+    <!--<span class="formError" th:if="${#fields.hasErrors('passwordHash')}"-->
+          <!--th:errors="*{passwordHash}">Invalid password</span>-->
 
     <div><input type="submit" value="Login"/></div>
     </form>
