@@ -10,11 +10,24 @@
     <h2>Login in the blog</h2>
 </header>
 <main>
-    <form>
-        </form>
+
+<form method="post" th:object="${user}">
+    <div><label for="username">Username:</label></div>
+    <input id="username" type="text" name="username" th:value="*{username}" />
+    <span class="formError" th:if="${#fields.hasErrors('username')}"
+          th:errors="*{username}">Invalid username</span>
+
+    <div><label for="password">Password:</label></div>
+    <input id="password" type="password" name="password" th:value="*{passwordHash}" />
+    <span class="formError" th:if="${#fields.hasErrors('passwordHash')}"
+          th:errors="*{passwordHash}">Invalid password</span>
+
+    <div><input type="submit" value="Login"/></div>
+    </form>
+
 </main>
 <footer th:replace="layout :: site-footer">
-    
+
 </footer>
 </body>
 
